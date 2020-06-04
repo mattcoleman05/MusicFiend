@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+       
+    </nav>
+
+
+
+    <div class="container mt-3">
+
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="/signuppage">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <form class= "form-inline " action="/login" method="POST">
+                    {% csrf_token %}
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" placeholder="mjohnson@email.com">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" placeholder="Password">
+                    <button type="submit">Login</button>
+                </form>          
+            </li>
+
+        </ul>
+      </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1>Welcome to MusicFiend!</h1>
+            <p>Your source for finding local artists and displaying your own projects!</p>
+        </div>
+    </div>
+    <div id="wrapper">
+        {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+
+
+           
+</body>
+</html>

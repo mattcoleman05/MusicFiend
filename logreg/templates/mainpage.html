@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between ">
+        <a class="form-control mr-sm-2" href="artistpage/{{ request.session.id }}">View Profile</a>
+        <a class="form-control mr-sm-2" href="editartist/{{ request.session.id }}">Edit Page</a>
+        <a class="form-control mr-sm-2" href="logout">Log Out</a>
+    </nav>
+    
+    <div class="jumbotron">
+
+        <h1 class="display-4">{{ request.session.artistname }}'s Dashboard</h1>
+    </div>   
+    {% for artist in artist %}
+    <div class="container pt-2 pb-2">
+    <ul class = "list-group">
+        <li class="list-group-item">{{ artist.user.artistname }} </li>
+        <li class="list-group-item">{{ artist.city }}</li>
+        <li class="list-group-item">{{ artist.genre }}</li>
+        <li class="list-group-item">{{ artist.record_label }}</li>
+        <li class="list-group-item"><a href="{{ artist.link.url }}">{{ artist.link }}</a></li>
+
+    </ul>
+    </div>
+    {% endfor %}
+    {% for x in images %}
+     
+    <img src="{{x.artist_image.image.url}}" alt="">
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+</body>
+</html

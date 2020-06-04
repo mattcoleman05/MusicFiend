@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class = "col-sm-4" >   
+                <h1>Sign Up Here</h1>
+                    <form action="/signup" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="artistname">Artist/Band</label>
+                            <input type="text" name="artistname" id="">
+                        </div>
+                        <div class="form-group">
+                            <label for="fname">First Name:</label>
+                            <input type="text" name="fname" id="" placeholder="Marc">
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Last Name:</label>
+                            <input type="text" name="lname" id="" placeholder="Johnson">
+                        </div>
+                        <div class="form-group">    
+                            <label for="email">Email:</label>
+                            <input type="text" name="email" id="" placeholder="mjohnson@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" name="password" id="" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmpassword">Confirm Password:</label>
+                            <input type="password" name="confirmpassword" id="" placeholder="Confirm Password">
+                        </div>
+                            <button type="submit">Sign Up</button>
+                    </form>
+            </div>
+        </div>
+    </div> 
+    <!-- <div class="container">  
+        <div class="row" >
+            <div class="col-sm-4">
+                <p>hello</p>
+                <p>goodbye</p>
+            </div>
+        </div> -->
+    
+    </div>
+</body>
+</html>

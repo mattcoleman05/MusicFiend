@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark  justify-content-between ">
+       
+    
+
+
+        <ul class="nav nav-tabs bg-dark">
+            <li class="nav-item">
+                <a class="nav-link active" href="/signuppage">Sign Up</a>
+            </li>
+            <li class="nav-item ">
+                <form class= "form-inline " action="/login" method="POST">
+                    {% csrf_token %}
+                    Email:<input class="form-control mr-sm-2" type="text" name="email" placeholder="mjohnson@email.com">
+                    Password:<input class="form-control mr-sm-2" type="password" name="password" placeholder="Password">
+                    <button type="submit">Login</button>
+                </form>          
+            </li>
+
+        </ul>
+
+    </nav>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1>Welcome to MusicFiend!</h1>
+            <p>Your source for finding local artists and displaying your own projects!</p>
+        </div>
+    </div>
+    <div id="wrapper">
+        {% if messages %}
+            <ul class="messages">    
+                {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <img src="{%static "logreg/static/images/rockphoto.jpeg" %}" alt="My image">
+
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChmxdh9olMMgiZAputopeQMfFKNYuwBkI&callback=initMap"
+    type="text/javascript"></script>
+
+           
+</body>
+</html>

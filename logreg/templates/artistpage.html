@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <script src="//geodata.solutions/includes/countrystatecity.js"></script>
+    <title>Artist Page</title>
+</head>
+<body>
+    <a href="/mainpage">Back</a>    
+    <div class="form-group">
+
+    <img src="{{ image.artist_image.url }}" alt="">
+
+    
+    <div class="container pt-2 pb-5">
+        <div class="artist-block"></div>
+        {% for item in artist.info.all %}
+        <ul class = "list-group ">
+            <li class="list-group-item">{{ artist.artistname }} </li>
+            <li class="list-group-item">{{ item.genre }}</li>
+            <li class="list-group-item">{{ item.members }}</li>
+            <li class="list-group-item">{{ item.record_label }}</li>
+            <li class="list-group-item"><a href="{{ artist.link.url }}">{{ item.link }}</a></li>
+            <a href="/image_upload">Add an Artist Image</a>
+        </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
